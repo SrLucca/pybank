@@ -36,6 +36,7 @@ def singup():
             else:
                 int(cpf)
                 register(cpf,user)
+                break
         except:
             print('OPÇÃO INVÁLIDA')
             continue
