@@ -1,5 +1,5 @@
 import os
-
+from telausuario import screenuser
 
 def singin():
     while(True):
@@ -13,6 +13,7 @@ def singin():
                 break
             except FileExistsError:
                 print(f'Olá, {name_user}!')
+                screenuser()
                 break
         except:
             continue
