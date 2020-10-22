@@ -7,10 +7,16 @@ def singin():
         user_login = input('Insira seu CPF COMPLETO: ')
         if user_login not in os.listdir():
             print('USUARIO NÃO CADASTRADO')
-            break
+            os.system('pause')
+            os.system('cls')
+            continue
         else:
             os.chdir(r'C:\Users\Lucia\Desktop\Lucca\programação\{}'.format(user_login))
-            print(f'Olá,{os.listdir()}')
+            arquivo_name = open('nome.txt','r')
+            for name in arquivo_name.readlines():
+                print(f'Olá, {name}')
+            arquivo_name.close()
+            os.system('pause')
             screenuser()
             break
     return user_login

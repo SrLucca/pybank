@@ -9,8 +9,8 @@ def register(cpf,user):
             past_archivo = os.mkdir('{}'.format(cpf))
             directory = 'C:\\Users\\Lucia\\Desktop\\Lucca\\programação'
             os.chdir(r'C:\Users\Lucia\Desktop\Lucca\programação\{}'.format(cpf))
-            archivo_db = open(f'{user}.txt','w')
-            archivo_db.writelines('Nome: {}\nCPF: {}'.format(user,cpf))
+            archivo_db = open(f'nome.txt','w')
+            archivo_db.writelines('{}'.format(user))
             archivo_db.close()
             print('USUARIO CADASTRADO')
             list.clear()
