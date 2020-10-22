@@ -10,7 +10,6 @@ def screenuser():
         print('| EXTRATO - [04]                |')
         print('| SAIR - [05]                   |')
         choice = int(input('==================================\nSELECIONE SUA OPÇÃO: '))
-        print(type(choice))
         if choice == 5:
             exit(0)
     return choice
