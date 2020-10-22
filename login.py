@@ -3,6 +3,8 @@ from telausuario import screenuser
 
 def singin():
     while(True):
+        os.system('cls')
+        print('TELA DE LOGIN')
         os.chdir(r'C:\Users\Lucia\Desktop\Lucca\programação')
         user_login = input('Insira seu CPF COMPLETO: ')
         user_senha = input('Insira sua SENHA: ')

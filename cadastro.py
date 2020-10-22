@@ -1,3 +1,4 @@
+from login import singin
 import os
 
 list = []
@@ -20,17 +21,20 @@ def register(cpf,user,senha):
             os.chdir(r'C:\Users\Lucia\Desktop\Lucca\programação')
             os.system('pause')
             os.system('cls')
-            break
+            continue
         except FileExistsError:
             print('Usuario ja CADASTRADO.')
             list.clear()
             os.system('pause')
             os.system('cls')
-            break
+            singin()
+            continue
 
 
 def singup():
     while(True):
+        os.system('cls')
+        print('TELA DE CADASTRO')
         user = input('Insira seu nome COMPLETO: ')
         cpf = input('Insira seu CPF: ')
         senha = input('Insira sua SENHA: ')
