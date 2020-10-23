@@ -1,5 +1,6 @@
 from login import singin
 import os
+from exittomenu import exit_
 
 list = []
 
@@ -62,11 +63,36 @@ def singup():
         os.system('cls')
         print("============ PY BANK ============")
         print('|        TELA DE CADASTRO       |')
-        user = input('| Insira seu nome COMPLETO: ')
-        cpf = input('| Insira seu CPF: ')
-        senha = input('| Insira sua SENHA: ')
-        idade = int(input('| Insira sua IDADE: '))
+        print('|    para SAIR escreva "sair"   |')
         
+        user = input('| Insira seu nome COMPLETO: ')
+        #SAIR PARA A TELA INICIAL
+        if user == 'sair':
+            exit_()
+        else:
+            pass
+
+        cpf = input('| Insira seu CPF: ')
+        #SAIR PARA A TELA INICIAL
+        if cpf == 'sair':
+            exit_()
+        else:
+            pass
+
+        senha = input('| Insira sua SENHA: ')
+        #SAIR PARA A TELA INICIAL
+        if senha == 'sair':
+            exit_()
+        else:
+            pass
+
+        idade = int(input('| Insira sua IDADE: '))
+        #SAIR PARA A TELA INICIAL
+        if idade == 'sair':
+            exit_()
+        else:
+            pass
+
         #VALIDAR SE CPF TEM 11 CARACTERES
         for num in cpf:
             list.append(num)

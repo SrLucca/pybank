@@ -1,6 +1,8 @@
 import os
 from telausuario import screenuser
 from choicesuser import ways
+from exittomenu import exit_
+
 
 def singin():
     '''
@@ -10,6 +12,7 @@ def singin():
         os.system('cls')
         print("============ PY BANK ============")
         print('|         TELA DE LOGIN         |')
+        print('|    para SAIR escreva "sair"   |')
 
         #ENTRA NO DIRETÓRIO CERTO PARA EVITAR ERROS
         os.chdir(r'C:\Users\Lucia\Desktop\Lucca\programação\usuarios')
@@ -17,8 +20,20 @@ def singin():
         #CPF DO USUARIO
         user_login = input('| Insira seu CPF COMPLETO: ')
         
+        #SAIR PARA A TELA INICIAL
+        if user_login == 'sair':
+            exit_()
+        else:
+            pass
+        
         #SENHA DO USUARIO
         user_senha = input('| Insira sua SENHA: ')
+        
+        #SAIR PARA A TELA INICIAL
+        if user_senha == 'sair':
+            exit_()
+        else:
+            pass
         
         #VALIDAR SE O USUARIO REALMENTE EXISTE APARTIR DO CPF
         if user_login not in os.listdir():
@@ -54,3 +69,5 @@ def singin():
                     ways()
                     break
     return user_login, user_senha
+
+
