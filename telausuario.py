@@ -1,4 +1,8 @@
 import os
+from deposito import deposit
+from extract import extrato
+from withdrawals import saque
+
 
 def screenuser():
     '''
@@ -15,4 +19,14 @@ def screenuser():
         choice = int(input('==================================\nSELECIONE SUA OPÇÃO: '))
         if choice == 5:
             exit(0)
+
+        if choice == 1:
+            deposit()
+        
+        if choice == 2:
+            saque()
+            
+        if choice == 4:
+            extrato()
+
     return choice

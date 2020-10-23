@@ -28,6 +28,7 @@ def register(cpf,user,senha,idade):
             #ENTRA NA PASTA DO USUARIO
             os.chdir(r'C:\Users\Lucia\Desktop\Lucca\programação\usuarios\{}'.format(cpf))
             
+
             #CRIAÇÃO DO NOME.TXT QUE CONTEM O NOME DO USUARIO
             archivo_db = open(f'nome.txt','w')
             archivo_db.writelines('{}'.format(user))
@@ -43,14 +44,18 @@ def register(cpf,user,senha,idade):
             archivo_db_senha.writelines('{}'.format(idade))
             archivo_db_senha.close()
 
+            #CRIAÇÃO DA IDADE.TXT QUE CONTEM A IDADE DO USUARIO
+            archivo_db_senha = open(f'saldo.txt','w')
+            archivo_db_senha.writelines('0')
+            archivo_db_senha.close()
+
+
             #CONFIRMAÇÃO DO REGISTO
             print('='*33,'\nUSUARIO CADASTRADO')
             list.clear()
-
-            #VOLTA PARA PASTA QUE CONTEM TODOS OS USUARIOS
-            os.chdir(r'C:\Users\Lucia\Desktop\Lucca\programação\usuarios')
             os.system('pause')
             os.system('cls')
+            exit_()
             continue
 
 
@@ -65,12 +70,14 @@ def singup():
         print('|        TELA DE CADASTRO       |')
         print('|    para SAIR escreva "sair"   |')
         
+
         user = input('| Insira seu nome COMPLETO: ')
         #SAIR PARA A TELA INICIAL
         if user == 'sair':
             exit_()
         else:
             pass
+
 
         cpf = input('| Insira seu CPF: ')
         #SAIR PARA A TELA INICIAL
@@ -79,6 +86,7 @@ def singup():
         else:
             pass
 
+
         senha = input('| Insira sua SENHA: ')
         #SAIR PARA A TELA INICIAL
         if senha == 'sair':
@@ -86,12 +94,14 @@ def singup():
         else:
             pass
 
+
         idade = int(input('| Insira sua IDADE: '))
         #SAIR PARA A TELA INICIAL
         if idade == 'sair':
             exit_()
         else:
             pass
+
 
         #VALIDAR SE CPF TEM 11 CARACTERES
         for num in cpf:
