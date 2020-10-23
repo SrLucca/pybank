@@ -1,6 +1,9 @@
 import os
 
 def screenuser():
+    '''
+    CAPTURA A OPÇÃO DO USUARIO E O REDIRECIONA PARA A OPERAÇÃO BANCÁRIA ESCOLHIDA
+    '''
     while(True):
         os.system('cls')
         print("============ PY BANK ============")

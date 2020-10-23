@@ -1,22 +1,38 @@
 import os
 from telausuario import screenuser
+from choicesuser import ways
 
 def singin():
+    '''
+    CAPTURA AS INFORMAÇÃO DO USUARIO E AS VERIFICA PARA FAZER O LOGIN
+    '''
     while(True):
         os.system('cls')
-        print('TELA DE LOGIN')
-        os.chdir(r'C:\Users\Lucia\Desktop\Lucca\programação')
-        user_login = input('Insira seu CPF COMPLETO: ')
-        user_senha = input('Insira sua SENHA: ')
+        print("============ PY BANK ============")
+        print('|         TELA DE LOGIN         |')
+
+        #ENTRA NO DIRETÓRIO CERTO PARA EVITAR ERROS
+        os.chdir(r'C:\Users\Lucia\Desktop\Lucca\programação\usuarios')
+
+        #CPF DO USUARIO
+        user_login = input('| Insira seu CPF COMPLETO: ')
         
+        #SENHA DO USUARIO
+        user_senha = input('| Insira sua SENHA: ')
+        
+        #VALIDAR SE O USUARIO REALMENTE EXISTE APARTIR DO CPF
         if user_login not in os.listdir():
-            print('USUARIO NÃO CADASTRADO')
+            print('='*33,'\nUSUARIO NÃO CADASTRADO')
             os.system('pause')
             os.system('cls')
             continue
-
+        
+        #SE EXISTIR...
         else:
-            os.chdir(r'C:\Users\Lucia\Desktop\Lucca\programação\{}'.format(user_login))
+            #ENTRA NA PASTA ONDE CONTEM AS INFORMAÇÕES DO USUARIO, QUE LEVA SEU CPF
+            os.chdir(r'C:\Users\Lucia\Desktop\Lucca\programação\usuarios\{}'.format(user_login))
+            
+            #VALIDAÇÃO DA SENHA ANTES PEDIDA
             arquivo_senha = open('senha.txt','r')
             for senha in arquivo_senha.readlines():
                 if user_senha != senha:
@@ -24,12 +40,17 @@ def singin():
                     os.system('pause')
                     os.system('cls')
                     continue
+
+                #SE TUDO ESTIVER CORRETO, ENTRA NO ARQUIVO NOME.TXT E CAPTURA O NOME DO USUARIO PARA DAR OLÁ
                 else:
                     arquivo_name = open('nome.txt','r')
+                    os.system('cls')
                     for name in arquivo_name.readlines():
                         print(f'Olá, {name}')
                     arquivo_name.close()
                     os.system('pause')
-                    screenuser()
+                    
+                    #MANDAR O USUARIO PARA AS OPÇÕES - OPERAÇÕES OU CONFIGURAÇÕES
+                    ways()
                     break
     return user_login, user_senha
