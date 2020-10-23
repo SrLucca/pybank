@@ -9,11 +9,18 @@ def register(cpf,user,senha,idade):
     PARTE LOGICA DO CADASTRO
     '''
     while(True):
-        try:
+        #ENTRA NO DIRETÓRIO CORRETO PARA CRIAÇÃO DA PASTA DO USUARIO QUE LEVA SEU CPF
+        os.chdir(r'C:\Users\Lucia\Desktop\Lucca\programação\usuarios')
 
-            #ENTRA NO DIRETÓRIO CORRETO PARA CRIAÇÃO DA PASTA DO USUARIO QUE LEVA SEU CPF
-            os.chdir(r'C:\Users\Lucia\Desktop\Lucca\programação\usuarios')
-            
+        #VERIFICA SE O USUARIO JA EXISTE
+        if cpf in os.listdir():
+            print('='*33,'\nUsuario ja CADASTRADO.')
+            list.clear()
+            os.system('pause')
+            os.system('cls')
+            break
+
+        else:
             #CRIAÇÃO DA PASTA DO USUARIO QUE LEVA SEU CPF
             past_archivo = os.mkdir('{}'.format(cpf))
 
@@ -36,7 +43,7 @@ def register(cpf,user,senha,idade):
             archivo_db_senha.close()
 
             #CONFIRMAÇÃO DO REGISTO
-            print('='*33,'USUARIO CADASTRADO')
+            print('='*33,'\nUSUARIO CADASTRADO')
             list.clear()
 
             #VOLTA PARA PASTA QUE CONTEM TODOS OS USUARIOS
@@ -45,13 +52,6 @@ def register(cpf,user,senha,idade):
             os.system('cls')
             continue
 
-        #VERIFICA SE O USUARIO JA EXISTE
-        except FileExistsError:
-            print('='*33,'\nUsuario ja CADASTRADO.')
-            list.clear()
-            os.system('pause')
-            os.system('cls')
-            break
 
 
 def singup():
