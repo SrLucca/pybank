@@ -2,7 +2,7 @@ import os
 from deposito import deposit
 from extract import extrato
 from withdrawals import saque
-
+from transfer import transferto
 
 def screenuser():
     '''
@@ -25,7 +25,10 @@ def screenuser():
         
         if choice == 2:
             saque()
-            
+        
+        if choice == 3:
+            transferto()
+
         if choice == 4:
             extrato()
 
