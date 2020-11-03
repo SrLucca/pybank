@@ -14,7 +14,7 @@ def transferto():
         qtd = input('|Insira o VALOR a ser transferido - R$: ')
 
         
-        os.chdir(r'C:\Users\Lucia\Desktop\Lucca\programação\usuarios')
+        os.chdir(r'C:\Users\Lucia\Documents\GitHub\pybank\usuarios')
 
         if user not in os.listdir():
             print('='*33,'\nSEU CPF ESTA INCORRETO')
@@ -25,12 +25,12 @@ def transferto():
         if to_user not in os.listdir():
             print('='*33,'\nUSUARIO NÃO CADASTRADO')
             os.system('pause')
-            os.chdir(r'C:\Users\Lucia\Desktop\Lucca\programação\usuarios\{}'.format(user))
+            os.chdir(r'C:\Users\Lucia\Documents\GitHub\pybank\usuarios\{}'.format(user))
             os.system('cls')
             exit_user()
 
         else:
-            os.chdir(r'C:\Users\Lucia\Desktop\Lucca\programação\usuarios\{}'.format(user))
+            os.chdir(r'C:\Users\Lucia\Documents\GitHub\pybank\usuarios{}'.format(user))
             saldo_exist = ''
             confer_saldo = open('saldo.txt','r')
             for saldo in confer_saldo.readlines():
@@ -46,15 +46,15 @@ def transferto():
 
                     #SE EXISTIR...
                 else:
-                    os.chdir(r'C:\Users\Lucia\Desktop\Lucca\programação\usuarios\{}'.format(user))
+                    os.chdir(r'C:\Users\Lucia\Documents\GitHub\pybank\usuarios\{}'.format(user))
                     
                     update_saldo = open('saldo.txt','w')
                     new_saldo = int(saldo_exist) - int(qtd)
                     update_saldo.writelines(f'{new_saldo}')
                     update_saldo.close()
 
-                    os.chdir(r'C:\Users\Lucia\Desktop\Lucca\programação\usuarios')
-                    os.chdir(r'C:\Users\Lucia\Desktop\Lucca\programação\usuarios\{}'.format(to_user))
+                    os.chdir(r'C:\Users\Lucia\Documents\GitHub\pybank\usuarios')
+                    os.chdir(r'C:\Users\Lucia\Documents\GitHub\pybank\usuarios\{}'.format(to_user))
                     
                     saldo_existente = ''
 
@@ -69,7 +69,7 @@ def transferto():
                         saldo_conta.close()
                     print('='*33,'\nQUANTIA DEPOSITADA!')
                     os.system('pause')
-                    os.chdir(r'C:\Users\Lucia\Desktop\Lucca\programação\usuarios\{}'.format(user))
+                    os.chdir(r'C:\Users\Lucia\Documents\GitHub\pybank\usuarios\{}'.format(user))
                     os.system('cls')
                     exit_user()
     

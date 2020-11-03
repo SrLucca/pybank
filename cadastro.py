@@ -11,7 +11,7 @@ def register(cpf,user,senha,idade):
     '''
     while(True):
         #ENTRA NO DIRETÓRIO CORRETO PARA CRIAÇÃO DA PASTA DO USUARIO QUE LEVA SEU CPF
-        os.chdir(r'C:\Users\Lucia\Desktop\Lucca\programação\usuarios')
+        os.chdir(r'C:\Users\Lucia\Documents\GitHub\pybank\usuarios')
 
         #VERIFICA SE O USUARIO JA EXISTE
         if cpf in os.listdir():
@@ -26,7 +26,7 @@ def register(cpf,user,senha,idade):
             past_archivo = os.mkdir('{}'.format(cpf))
 
             #ENTRA NA PASTA DO USUARIO
-            os.chdir(r'C:\Users\Lucia\Desktop\Lucca\programação\usuarios\{}'.format(cpf))
+            os.chdir(r'C:\Users\Lucia\Documents\GitHub\pybank\usuarios\{}'.format(cpf))
             
 
             #CRIAÇÃO DO NOME.TXT QUE CONTEM O NOME DO USUARIO

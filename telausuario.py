@@ -3,6 +3,7 @@ from deposito import deposit
 from extract import extrato
 from withdrawals import saque
 from transfer import transferto
+from exitoperations import exitoperation
 
 def screenuser():
     '''
@@ -16,9 +17,17 @@ def screenuser():
         print('| TRANSFERÊNCIAS - [03]         |')
         print('| EXTRATO - [04]                |')
         print('| SAIR - [05]                   |')
-        choice = int(input('==================================\nSELECIONE SUA OPÇÃO: '))
+        try:
+            choice = int(input('==================================\nSELECIONE SUA OPÇÃO: '))
+        except ValueError:
+            print('OPÇÃO INVÁLIDA')
+            os.system('pause')
+            os.system('cls')
+            continue
+
         if choice == 5:
-            exit(0)
+            os.system('cls')
+            exitoperation()
 
         if choice == 1:
             deposit()

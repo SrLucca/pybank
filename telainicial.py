@@ -10,7 +10,7 @@ def telainicial():
         os.system('cls')
         
         #ENTRA NO DIRETÓRIO CORRETO PARA EVITAR ERROS
-        os.chdir(r'C:\Users\Lucia\Desktop\Lucca\programação\usuarios')
+        os.chdir(r'C:\Users\Lucia\Documents\GitHub\pybank\usuarios')
 
 
         print("============ PY BANK ============")
@@ -19,8 +19,21 @@ def telainicial():
         print('| SAIR - [03]                    |')
         
         #ESCOLHA DO USUARIO
-        choice = int(input('==================================\nSELECIONE SUA OPÇÃO: '))
-        
+        try:
+            choice = int(input('==================================\nSELECIONE SUA OPÇÃO: '))
+            if choice == 3:
+                break
+            firstchoice(choice)
+        except ValueError:
+            print('OPÇÃO INVÁLIDA')
+            os.system('pause')
+            os.system('cls')
+            continue
+
+
+def firstchoice(choice):
+
+    while(True):
         #ESCOLHA 1 = CHAMA A FUNÇÃO DE LOGIN
         if choice == 1:
             return singin()
@@ -28,7 +41,4 @@ def telainicial():
         #ESCOLHA 2 = CHAMA A FUNÇÃO DE CADASTRO
         if choice == 2:
             return singup()
-
-        #ESCOLHA 3 = SAI DO PROGRAMA
-        if choice == 3:
-            break
+    return

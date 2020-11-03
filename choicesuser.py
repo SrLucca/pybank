@@ -1,5 +1,6 @@
 from telausuario import screenuser
 from confsuser import choiceconf
+import os
 
 
 def ways():
@@ -11,7 +12,14 @@ def ways():
     print('| CONFIGURAÇÕES DO USUÁRIO - [02]              |')
     print('| SAIR - [03]                                  |')
     
-    choice = int(input('==================================\nSELECIONE SUA OPÇÃO: '))
+    try:
+        choice = int(input('==================================\nSELECIONE SUA OPÇÃO: '))
+    except ValueError:
+            print('OPÇÃO INVÁLIDA')
+            os.system('pause')
+            os.system('cls')
+            exit(0)
+
     if choice == 1:
         screenuser()
     if choice == 2:
