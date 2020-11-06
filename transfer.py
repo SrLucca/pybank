@@ -30,7 +30,7 @@ def transferto():
             exit_user()
 
         else:
-            os.chdir(r'C:\Users\Lucia\Documents\GitHub\pybank\usuarios{}'.format(user))
+            os.chdir(r'C:\Users\Lucia\Documents\GitHub\pybank\usuarios\{}'.format(user))
             saldo_exist = ''
             confer_saldo = open('saldo.txt','r')
             for saldo in confer_saldo.readlines():
