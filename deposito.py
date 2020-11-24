@@ -48,4 +48,5 @@ def deposit():
                     os.system('cls')
                     saldo_conta.close()
                     exit_user()
+        arquivo_senha.close()
     return

@@ -2,6 +2,8 @@ from login import singin
 from cadastro import singup
 import os
 
+
+
 def telainicial():
     '''
     CAPTURA A OPÇÃO DO USUARIO E O REDIRECIONA
@@ -10,7 +12,9 @@ def telainicial():
         os.system('cls')
         
         #ENTRA NO DIRETÓRIO CORRETO PARA EVITAR ERROS
-        os.chdir(r'C:\Users\Lucia\Documents\GitHub\pybank\usuarios')
+        usuario_destino = os.getcwd()
+        print(usuario_destino)
+        
 
 
         print("============ PY BANK ============")
@@ -21,8 +25,14 @@ def telainicial():
         #ESCOLHA DO USUARIO
         try:
             choice = int(input('==================================\nSELECIONE SUA OPÇÃO: '))
+            
+            if choice > 3 or choice < 1:
+                print('OPÇÃO INVÁLIDA')
+                os.system('pause')
+                os.system('cls')
+                continue
             if choice == 3:
-                break
+                exit(0)
             firstchoice(choice)
         except ValueError:
             print('OPÇÃO INVÁLIDA')

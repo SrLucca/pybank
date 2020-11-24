@@ -38,4 +38,5 @@ def changep():
                     os.system('pause')
                     os.system('cls')
                     break
+            arquivo_senha.close()
     return

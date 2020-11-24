@@ -15,7 +15,9 @@ def singin():
         print('|    para SAIR escreva "sair"   |')
 
         #ENTRA NO DIRETÓRIO CERTO PARA EVITAR ERROS
-        os.chdir(r'C:\Users\Lucia\Documents\GitHub\pybank\usuarios')
+        usuario_destino = os.getcwd()
+        usuario_destino += '\\usuarios'
+        os.chdir('{}'.format(usuario_destino))
 
         #CPF DO USUARIO
         user_login = input('| Insira seu CPF COMPLETO: ')
@@ -45,7 +47,7 @@ def singin():
         #SE EXISTIR...
         else:
             #ENTRA NA PASTA ONDE CONTEM AS INFORMAÇÕES DO USUARIO, QUE LEVA SEU CPF
-            os.chdir(r'C:\Users\Lucia\Documents\GitHub\pybank\usuarios\{}'.format(user_login))
+            os.chdir('{}\\{}'.format(usuario_destino,user_login))
             
             #VALIDAÇÃO DA SENHA ANTES PEDIDA
             arquivo_senha = open('senha.txt','r')
@@ -65,9 +67,11 @@ def singin():
                     arquivo_name.close()
                     os.system('pause')
                     
+                    
                     #MANDAR O USUARIO PARA AS OPÇÕES - OPERAÇÕES OU CONFIGURAÇÕES
                     ways()
                     break
+            arquivo_senha.close()
     return user_login, user_senha
 
 

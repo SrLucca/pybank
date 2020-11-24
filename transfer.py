@@ -1,10 +1,15 @@
 import os
 from exittouserscreen import exit_user
 
+
 def transferto():
 
     while(True):
 
+
+        usuario_destino = os.getcwd()
+        print(usuario_destino)
+        
         print("========================= PY BANK =========================")
         print('|                      TRANSFERÊNCIA                      |')
         print('|                 para SAIR escreva "sair"                |')
@@ -13,24 +18,22 @@ def transferto():
         to_user = input('|Insira o CPF do USUARIO a quem você irá transferir: ')
         qtd = input('|Insira o VALOR a ser transferido - R$: ')
 
-        
-        os.chdir(r'C:\Users\Lucia\Documents\GitHub\pybank\usuarios')
+        diretorio_raiz = os.path.dirname(__file__)
 
-        if user not in os.listdir():
+        if user not in os.listdir('{}\\usuarios'.format(diretorio_raiz)):
+
             print('='*33,'\nSEU CPF ESTA INCORRETO')
             os.system('pause')
             os.system('cls')
             break
 
-        if to_user not in os.listdir():
+        if to_user not in os.listdir('{}\\usuarios'.format(diretorio_raiz)):
             print('='*33,'\nUSUARIO NÃO CADASTRADO')
             os.system('pause')
-            os.chdir(r'C:\Users\Lucia\Documents\GitHub\pybank\usuarios\{}'.format(user))
             os.system('cls')
             exit_user()
 
         else:
-            os.chdir(r'C:\Users\Lucia\Documents\GitHub\pybank\usuarios\{}'.format(user))
             saldo_exist = ''
             confer_saldo = open('saldo.txt','r')
             for saldo in confer_saldo.readlines():
@@ -46,15 +49,13 @@ def transferto():
 
                     #SE EXISTIR...
                 else:
-                    os.chdir(r'C:\Users\Lucia\Documents\GitHub\pybank\usuarios\{}'.format(user))
                     
                     update_saldo = open('saldo.txt','w')
                     new_saldo = int(saldo_exist) - int(qtd)
                     update_saldo.writelines(f'{new_saldo}')
                     update_saldo.close()
 
-                    os.chdir(r'C:\Users\Lucia\Documents\GitHub\pybank\usuarios')
-                    os.chdir(r'C:\Users\Lucia\Documents\GitHub\pybank\usuarios\{}'.format(to_user))
+                    os.chdir('{}\\usuarios\\{}'.format(diretorio_raiz,to_user))
                     
                     saldo_existente = ''
 
@@ -69,8 +70,9 @@ def transferto():
                         saldo_conta.close()
                     print('='*33,'\nQUANTIA DEPOSITADA!')
                     os.system('pause')
-                    os.chdir(r'C:\Users\Lucia\Documents\GitHub\pybank\usuarios\{}'.format(user))
+                    os.chdir('{}\\usuarios\\{}'.format(diretorio_raiz,user))
                     os.system('cls')
                     exit_user()
     
     return
+

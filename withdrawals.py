@@ -12,7 +12,7 @@ def saque():
 
     os.system('cls')
     print("========================= PY BANK =========================")
-    print('|                         DEPÓSITO                        |')
+    print('|                         SAQUE                           |')
     print('|                 para SAIR escreva "sair"                |')
     
     qtd_saque = int(input('| Insira a quantia a ser RETIRADA - R$: '))
@@ -47,6 +47,7 @@ def saque():
                 os.system('cls')
             saldo_conta.close()
             exit_user()
+        arquivo_senha.close()
             
         
     return

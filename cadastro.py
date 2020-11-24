@@ -5,13 +5,15 @@ from exittomenu import exit_
 list = []
 
 
+
 def register(cpf,user,senha,idade):
     '''
     PARTE LOGICA DO CADASTRO
     '''
     while(True):
         #ENTRA NO DIRETÓRIO CORRETO PARA CRIAÇÃO DA PASTA DO USUARIO QUE LEVA SEU CPF
-        os.chdir(r'C:\Users\Lucia\Documents\GitHub\pybank\usuarios')
+        usuario_destino = os.getcwd()
+        usuario_destino += '\\usuarios'
 
         #VERIFICA SE O USUARIO JA EXISTE
         if cpf in os.listdir():
@@ -23,10 +25,13 @@ def register(cpf,user,senha,idade):
 
         else:
             #CRIAÇÃO DA PASTA DO USUARIO QUE LEVA SEU CPF
-            past_archivo = os.mkdir('{}'.format(cpf))
+
+            pasta = '{}'.format(cpf)
+            path = os.path.join(usuario_destino, pasta)
+            os.mkdir(path)
 
             #ENTRA NA PASTA DO USUARIO
-            os.chdir(r'C:\Users\Lucia\Documents\GitHub\pybank\usuarios\{}'.format(cpf))
+            os.chdir('{}\\{}'.format(usuario_destino,pasta))
             
 
             #CRIAÇÃO DO NOME.TXT QUE CONTEM O NOME DO USUARIO
@@ -52,6 +57,7 @@ def register(cpf,user,senha,idade):
 
             #CONFIRMAÇÃO DO REGISTO
             print('='*33,'\nUSUARIO CADASTRADO')
+            os.chdir('{}'.format(usuario_destino))
             list.clear()
             os.system('pause')
             os.system('cls')
@@ -66,6 +72,9 @@ def singup():
     '''
     while(True):
         os.system('cls')
+        usuario_destino = os.getcwd()
+        usuario_destino += '\\usuarios'
+        print(usuario_destino)
         print("============ PY BANK ============")
         print('|        TELA DE CADASTRO       |')
         print('|    para SAIR escreva "sair"   |')

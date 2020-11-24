@@ -1,4 +1,7 @@
 import os
+import shutil
+
+usuario_destino = os.getcwd()
 
 def delete():
     while(True):
@@ -11,8 +14,9 @@ def delete():
             break
         
         arquivo_senha = open('senha.txt','r')
+        
         for senha in arquivo_senha.readlines():
-            
+
             if current_password != senha:
                 print('='*33)
                 print('SENHA INCORRETA!')
@@ -20,8 +24,9 @@ def delete():
                 os.system('cls')
                 continue
             else:
-                os.chdir(r'C:\Users\Lucia\Documents\GitHub\pybank\usuarios')
-                delete('{}'.format(cpf))
+                arquivo_senha.close()
+                usuario_destino += '\\usuarios'
+                shutil.rmtree('{}'.format(cpf))
                 print('='*33,'CONTA DELETADA')
                 os.system('pause')
                 os.system('cls')
