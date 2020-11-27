@@ -2,9 +2,9 @@ import os
 
 def changep():
     while(True):
-        print("============ PY BANK ============")
-        print('|         ALTERAR SENHA         |')
-        print('|    para sair escreva "sair"   |')
+        print("================ PY BANK =================")
+        print('|             ALTERAR SENHA              |')
+        print('|para sair escreva "sair" na sua senha   |')
 
         current_password = input('|Digite sua SENHA ATUAL: ')
         
@@ -19,8 +19,10 @@ def changep():
                 print('SENHA INCORRETA!')
                 os.system('pause')
                 os.system('cls')
+                arquivo_senha.close()
                 continue
             else:
+                arquivo_senha.close()
                 new_password = input('|Insira a NOVA SENHA: ')
                 confirm_password = input('|Repita a NOVA SENHA: ')
 
@@ -38,5 +40,5 @@ def changep():
                     os.system('pause')
                     os.system('cls')
                     break
-            arquivo_senha.close()
+            
     return
