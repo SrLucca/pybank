@@ -12,8 +12,6 @@ def telainicial():
         os.system('cls')
         
         #ENTRA NO DIRETÓRIO CORRETO PARA EVITAR ERROS
-        usuario_destino = os.getcwd()
-        print(usuario_destino)
         
 
 
