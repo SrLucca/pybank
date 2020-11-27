@@ -17,11 +17,12 @@ def ways():
         
         try:
             choice = int(input('==================================\nSELECIONE SUA OPÇÃO: '))
+
         except ValueError:
                 print('OPÇÃO INVÁLIDA')
                 os.system('pause')
                 os.system('cls')
-                exit(0)
+                continue
 
         if choice == 1:
             screenuser()
@@ -29,4 +30,9 @@ def ways():
             choiceconf()
         if choice == 3:
             exit(0)
-            
+        if choice < 1.0 or choice > 3.0:
+            print('OPÇÃO INVÁLIDA')
+            os.system('pause')
+            os.system('cls')
+            continue
+        
