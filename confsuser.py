@@ -4,8 +4,9 @@ from delaccount import delete
 
 
 def choiceconf():
-    os.system('cls')
+    
     while(True):
+        os.system('cls')
         print("============ PY BANK ============")
         print('|    CONFIGURAÇÕES DA CONTA     |')
         print('|[1] - Alterar SENHA            |')
