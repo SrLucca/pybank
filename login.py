@@ -14,10 +14,7 @@ def singin():
         print('|         TELA DE LOGIN         |')
         print('|    para SAIR escreva "sair"   |')
 
-        #ENTRA NO DIRETÓRIO CERTO PARA EVITAR ERROS
-        usuario_destino = os.getcwd()
-        usuario_destino += '\\usuarios'
-        os.chdir('{}'.format(usuario_destino))
+        diretorio_raiz = os.path.dirname(__file__)
 
         #CPF DO USUARIO
         user_login = input('| Insira seu CPF COMPLETO: ')
@@ -38,7 +35,7 @@ def singin():
             pass
         
         #VALIDAR SE O USUARIO REALMENTE EXISTE APARTIR DO CPF
-        if user_login not in os.listdir():
+        if user_login not in os.listdir('{}\\usuarios'.format(diretorio_raiz)):
             print('='*33,'\nUSUARIO NÃO CADASTRADO')
             os.system('pause')
             os.system('cls')
@@ -47,7 +44,7 @@ def singin():
         #SE EXISTIR...
         else:
             #ENTRA NA PASTA ONDE CONTEM AS INFORMAÇÕES DO USUARIO, QUE LEVA SEU CPF
-            os.chdir('{}\\{}'.format(usuario_destino,user_login))
+            os.chdir('{}\\usuarios\\{}'.format(diretorio_raiz,user_login))
             
             #VALIDAÇÃO DA SENHA ANTES PEDIDA
             arquivo_senha = open('senha.txt','r')
@@ -56,10 +53,12 @@ def singin():
                     print('SENHA INCORRETA!')
                     os.system('pause')
                     os.system('cls')
+                    arquivo_senha.close()
                     continue
 
                 #SE TUDO ESTIVER CORRETO, ENTRA NO ARQUIVO NOME.TXT E CAPTURA O NOME DO USUARIO PARA DAR OLÁ
                 else:
+                    arquivo_senha.close()
                     arquivo_name = open('nome.txt','r')
                     os.system('cls')
                     for name in arquivo_name.readlines():
@@ -71,7 +70,6 @@ def singin():
                     #MANDAR O USUARIO PARA AS OPÇÕES - OPERAÇÕES OU CONFIGURAÇÕES
                     ways()
                     break
-            arquivo_senha.close()
     return user_login, user_senha
 
 
