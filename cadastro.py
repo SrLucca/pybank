@@ -74,7 +74,6 @@ def singup():
         os.system('cls')
         usuario_destino = os.getcwd()
         usuario_destino += '\\usuarios'
-        print(usuario_destino)
         print("============ PY BANK ============")
         print('|        TELA DE CADASTRO       |')
         print('|    para SAIR escreva "sair"   |')
