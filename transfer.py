@@ -6,17 +6,27 @@ def transferto():
 
     while(True):
 
-
+        os.system('cls')
         usuario_destino = os.getcwd()
-        print(usuario_destino)
         
         print("========================= PY BANK =========================")
         print('|                      TRANSFERÊNCIA                      |')
         print('|                 para SAIR escreva "sair"                |')
 
         user = input('|Insira SEU CPF: ')
+
+        if user == 'sair':
+            break
+
         to_user = input('|Insira o CPF do USUARIO a quem você irá transferir: ')
+
+        if to_user == 'sair':
+            break
+        
         qtd = input('|Insira o VALOR a ser transferido - R$: ')
+
+        if qtd == 'sair':
+            break
 
         diretorio_raiz = os.path.dirname(__file__)
 
