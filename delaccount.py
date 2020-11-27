@@ -1,16 +1,27 @@
 import os
 import shutil
 
-usuario_destino = os.getcwd()
+
 
 def delete():
     while(True):
-        print("============ PY BANK ============")
-        print('|         ENCERRAR CONTA        |')
+        os.system('cls')
+        print("================= PY BANK ====================")
+        print('|               ENCERRAR CONTA               |')
+        print('|    para SAIR escreva "sair" na sua SENHA   |')
         cpf = input('|Digite seu CPF: ')
         current_password = input('|Digite sua SENHA: ')
-            
+        
+        diretorio_raiz = os.path.dirname(__file__)
+
         if current_password == 'sair':
+            break
+
+        if cpf not in os.listdir('{}\\usuarios'.format(diretorio_raiz)):
+
+            print('='*33,'\nSEU CPF ESTA INCORRETO')
+            os.system('pause')
+            os.system('cls')
             break
         
         arquivo_senha = open('senha.txt','r')
@@ -22,12 +33,14 @@ def delete():
                 print('SENHA INCORRETA!')
                 os.system('pause')
                 os.system('cls')
+                arquivo_senha.close()
                 continue
             else:
                 arquivo_senha.close()
-                usuario_destino += '\\usuarios'
+                os.chdir('{}\\usuarios'.format(diretorio_raiz))
                 shutil.rmtree('{}'.format(cpf))
-                print('='*33,'CONTA DELETADA')
+                os.chdir('{}'.format(diretorio_raiz))
+                print('='*33,'\nCONTA DELETADA')
                 os.system('pause')
                 os.system('cls')
                 exit(0)
