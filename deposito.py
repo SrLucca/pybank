@@ -5,6 +5,7 @@ from exittouserscreen import exit_user
 def deposit():
     
     while(True):
+        os.system('cls')
         
         '''
         ACESSA O SALDO DO USUARIO E O ATUALIZA COM A QUANTIDADE RETIRADA
@@ -18,11 +19,22 @@ def deposit():
         os.system('cls')
         print("========================= PY BANK =========================")
         print('|                         DEPÓSITO                        |')
-        print('|                 para SAIR escreva "sair"                |')
+        print('|             para SAIR escreva "sair" na SENHA           |')
         
-        qtd_deposito = int(input('| Insira a quantia a ser DEPOSITADA - R$: '))
+        try:
+            qtd_deposito = float(input('| Insira a quantia a ser DEPOSITADA - R$: '))
+
+
+        except ValueError:
+            print('OPÇÃO INVÁLIDA')
+            os.system('pause')
+            os.system('cls')
+            break
         
         user_senha = input('Insira sua senha: ')
+
+        if user_senha == 'sair':
+            exit_user()
         
         arquivo_senha = open('senha.txt','r')
         for senha in arquivo_senha.readlines():
@@ -31,10 +43,12 @@ def deposit():
                 print('SENHA INCORRETA!')
                 os.system('pause')
                 os.system('cls')
+                arquivo_senha.close()
                 continue
             else:
 
-                novo_saldo = int(saldo_existente) + int(qtd_deposito)
+                arquivo_senha.close()
+                novo_saldo = float(saldo_existente) + float(qtd_deposito)
                 saldo_conta = open('saldo.txt','w')
                 saldo_conta.writelines('{}'.format(f'{novo_saldo}'))
                 saldo_conta.close()
@@ -48,5 +62,5 @@ def deposit():
                     os.system('cls')
                     saldo_conta.close()
                     exit_user()
-        arquivo_senha.close()
+        
     return
