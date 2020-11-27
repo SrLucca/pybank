@@ -41,4 +41,10 @@ def screenuser():
         if choice == 4:
             extrato()
 
+        if choice < 1.0 or choice > 5.0:
+            print('OPÇÃO INVÁLIDA')
+            os.system('pause')
+            os.system('cls')
+            continue
+
     return choice
