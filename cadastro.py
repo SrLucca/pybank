@@ -1,6 +1,7 @@
 from login import singin
 import os
 from exittomenu import exit_
+from insert_bd import insert
 
 list = []
 
@@ -134,7 +135,9 @@ def singup():
         else:
             int(cpf)
             list.clear()
-            register(cpf,user,senha,idade)
+            #register(cpf,user,senha,idade)
+            insert(str(user), str(cpf), "teste", str(idade), str(999999))
+
             break
     return cpf,user,senha,idade
 
